@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "types": ["node"],
+    "strict": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "@newfoundcodes/helvetium-dom",
+    "paths": {
+      "@newfoundcodes/helvetium-boot": ["../src/index.ts"],
+      "@newfoundcodes/helvetium-boot/router": ["../src/router/index.ts"],
+      "@newfoundcodes/helvetium-boot/middleware": ["../src/middleware/index.ts"],
+      "@newfoundcodes/helvetium-boot/jwt": ["../src/security/jwt.ts"],
+      "@newfoundcodes/helvetium-boot/jwk": ["../src/security/jwk.ts"],
+      "@newfoundcodes/helvetium-boot/cookies": ["../src/cookies.ts"],
+      "@newfoundcodes/helvetium-boot/rpc": ["../src/rpc.ts"],
+      "@newfoundcodes/helvetium-boot/websocket": ["../src/websocket.ts"],
+      "@newfoundcodes/helvetium-boot/server-actions": ["../src/server-actions.ts"],
+      "@newfoundcodes/helvetium-boot/helvetium-dom": ["../src/integration/helvetium-dom.ts"],
+      "@newfoundcodes/helvetium-boot/node": ["../src/adapter/node.ts"],
+      "@newfoundcodes/helvetium-boot/context-storage": ["../src/context-storage.ts"],
+      "@newfoundcodes/helvetium-boot/ssg": ["../src/adapter/ssg.ts"],
+      "@newfoundcodes/helvetium-boot/openapi": ["../src/openapi.ts"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}
