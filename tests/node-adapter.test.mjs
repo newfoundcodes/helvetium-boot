@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdtemp, writeFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import WebSocket from 'ws';
 import { createApp } from '../dist/index.js';
 import { serve, serveStatic } from '../dist/adapter/node.js';
 
@@ -77,17 +78,15 @@ test('80 native Node WebSocket adapter upgrades and echoes frames', async () => 
         reject(new Error('WebSocket test timed out'));
       }, 3000);
 
-      socket.addEventListener('open', () => socket.send('hello-websocket'));
-      socket.addEventListener('message', (event) => {
+      socket.on('open', () => socket.send('hello-websocket'));
+      socket.on('message', (data) => {
         clearTimeout(timer);
-        const data = event.data;
         socket.close();
-        resolve(data);
+        resolve(data.toString());
       });
-
-      socket.addEventListener('error', () => {
+      socket.on('error', (error) => {
         clearTimeout(timer);
-        reject(new Error('WebSocket error'));
+        reject(error);
       });
     });
 
