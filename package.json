@@ -1,6 +1,6 @@
 {
   "name": "@newfoundcodes/helvetium-boot",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Helvetium Boot is a web framework with Web-Standard HTTP, routing, middleware, validation, OpenAPI 3.1, RPC, security, WebSockets, server actions, and Helvetium DOM SSR/same-document navigation integration.",
   "type": "module",
   "sideEffects": false,
